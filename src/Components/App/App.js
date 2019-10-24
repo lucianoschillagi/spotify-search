@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     // Initial state of the component
-    this.state = { searchResults: 
+    this.state = { 
+      searchResults: 
       // an array that will contains info
       // about the song
       [
