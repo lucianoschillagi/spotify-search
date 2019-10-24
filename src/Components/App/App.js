@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
       <h1>Spotify Searcher</h1>
-      <div class="App">
-        <div class="App-playlist">
+      <div className="App">
+        <div className="App-playlist">
 
           
           {/* 🚩  NOTE: import this components */}
