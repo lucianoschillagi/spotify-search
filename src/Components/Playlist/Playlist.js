@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Playlist.css'
 // import TrackList ...
 
 // Respresents the playlist created for the user.
