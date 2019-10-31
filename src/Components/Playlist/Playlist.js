@@ -12,6 +12,7 @@ class Playlist extends Component { // a stateLESS class component
         <input value={'New Playlist'}/>
 
         {/* 2-Add a TrackList component */}
+        {/* <TrackList/> */}
 
         {/* 3-Save to Spotify Button */}
         <button class="Playlist-save">

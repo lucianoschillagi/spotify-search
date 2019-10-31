@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
+// import SearchBar ...
+// import SearchResults...
+// import PlayList...
 
 class App extends Component {
   
@@ -8,15 +12,28 @@ class App extends Component {
     super(props);
     // Initial state of the component
     this.state = { 
+      // the play list name
+      playListName: '',
+      // the play list tracks
+      playlistTracks: [],
+      // the search results
       searchResults: 
       // an array that will contains info
       // about the song
       [
-        name = '',
-        artist =  '',
-        album = '',
-        id = ''
-       ]
+        {
+          name: 'Odelay',
+          artist: 'Beck',
+          album: 'Odelay',
+          id: '1234'
+        },
+        {
+          name: 'Old',
+          artist: 'Nick Cave',
+          album: 'Five leaves left',
+          id: '3456'
+        }
+      ]
    }
   }
 
@@ -26,14 +43,14 @@ class App extends Component {
           <h1>Spotify Searcher</h1>
           <div className="App">
             <div className="App-playlist">
-    
-              
-              {/* 🚩  NOTE: import this components */}
-              {/* Add a Playlist component  */}
-              {/* Add a SearchBar component  */}
-              {/*Add a SearchResults component  */}
-    
-              </div>
+              {/* <SearchBar/> */}
+              {/* <SearchResults/> */}
+
+              <Playlist 
+                  playlistName={this.state.playlistName}
+                  playlistTracks={this.state.playlistTracks}
+              />
+            </div>
           </div>
         </div>
       );

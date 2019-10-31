@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import TrackList...
+import TrackList from '../TrackList/TrackList';
 
 // an stateLESS class component
 class SearchResults extends Component {
@@ -12,6 +12,7 @@ class SearchResults extends Component {
            searchResults={this.state.searchResults}>
         <h2>Results</h2>
         {/*  Add a TrackList component  */}
+        <TrackList tracks={this.props.searchResults}/>
       </div>
     );
   }

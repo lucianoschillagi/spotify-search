@@ -19,21 +19,21 @@ class Track extends Component { // an stateLESS class component
 
   render() {
     return (
-      <div className="Track">
+      <div className="Track" track={this.props.tracks}>
 
         {/* 1-The track info */}
         <div className="Track-information">
 
           {/* 1a-The track name */}
           <h3>
-            {/* track name will go here  */}
+            {this.props.track.name}
           </h3>
 
           {/* 1b-The track artist and album */}
           <p>
-            {/* track artist will go here-  */}
+             {this.props.track.artist}
             | 
-            {/* track album will go here-  */}
+             {this.props.track.album}
             </p>
         </div>
 
