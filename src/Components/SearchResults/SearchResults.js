@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import './SearchResults.css';
+
 import TrackList from '../TrackList/TrackList';
 
-// an stateLESS class component
+// Abstract:
+// la lista de canciones obtenidas
+// después de realizar una búsqueda específica
 class SearchResults extends Component {
   
   render() {
@@ -9,10 +13,13 @@ class SearchResults extends Component {
   to SearchResults component as an attribute */}
     return (
       <div className="SearchResults" 
-           searchResults={this.state.searchResults}>
+      >
         <h2>Results</h2>
-        {/*  Add a TrackList component  */}
-        <TrackList tracks={this.props.searchResults}/>
+        <TrackList 
+              tracks={this.props.searchResults}
+              onAdd={this.props.onAdd}
+              isRemoval={this.props.isRemoval}
+         />
       </div>
     );
   }

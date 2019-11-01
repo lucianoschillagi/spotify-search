@@ -4,6 +4,16 @@ import './Track.css'
 // Contains the info about the song's track
 class Track extends Component { // an stateLESS class component
 
+ constructor(props) {
+   super(props);
+   this.addTrack = this.addTrack.bind(this);
+ }
+
+  // Add track to the playlist
+  addTrack() {
+     this.props.onAdd(this.props.track)
+  }
+
   // create a method
   renderAction() {
     return (
@@ -11,7 +21,7 @@ class Track extends Component { // an stateLESS class component
         if (isRemoval) {
           <button> - </button>
         } else { 
-          <button> +  </button>
+          <button onClick={this.addTrack}> +  </button>
         }
       </div>
     );
@@ -25,15 +35,18 @@ class Track extends Component { // an stateLESS class component
         <div className="Track-information">
 
           {/* 1a-The track name */}
-          <h3>
-            {this.props.track.name}
-          </h3>
+          <h3>{this.props.track.name}</h3>
 
           {/* 1b-The track artist and album */}
           <p>
-             {this.props.track.artist}
+            {this.props.track.artist}
             | 
              {this.props.track.album}
+            </p>
+
+            {/* 🤓 experiment, later clear */} 
+            <p>
+              {this.props.track.id}
             </p>
         </div>
 
