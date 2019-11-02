@@ -11,7 +11,7 @@ import TrackList from '../TrackList/TrackList';
 class Playlist extends Component { // a stateLESS class component
 
   // this.props.playlistTracks
-  
+
   render() {
     return (
       <div className="Playlist">
@@ -20,7 +20,9 @@ class Playlist extends Component { // a stateLESS class component
         <input defaultValue={this.props.playlistName}/>
 
         {/* 2-Add a TrackList component */}
-        <TrackList tracks={this.props.playlistTracks}/>
+        <TrackList tracks={this.props.playlistTracks}
+                    onRemove={this.props.onRemove}  
+                    isRemoval={true}/>
 
         {/* 3-Save to Spotify Button */}
         <button class="Playlist-save">
