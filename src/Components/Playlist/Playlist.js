@@ -10,13 +10,14 @@ import TrackList from '../TrackList/TrackList';
 // por la búsqueda, a su lista personalizada 
 class Playlist extends Component { // a stateLESS class component
 
-
+  // this.props.playlistTracks
+  
   render() {
     return (
       <div className="Playlist">
 
         {/* 1-The name of the playlist */}
-        <input value={this.props.playlistName}/>
+        <input defaultValue={this.props.playlistName}/>
 
         {/* 2-Add a TrackList component */}
         <TrackList tracks={this.props.playlistTracks}/>

@@ -9,7 +9,7 @@ class SearchBar extends Component {
     return (
       <div className="SearchBar">
         <input placeholder="Enter A Song, Album, or Artist" />
-        <button claas="SearchButton">SEARCH</button>
+        <button class="SearchButton">SEARCH</button>
       </div>
     );
   }

@@ -12,10 +12,42 @@ class App extends Component {
   
   constructor(props) {
     super(props);
+
     // Initial state of the component
     this.state = { 
+      // the search results
+      searchResults: 
+      // un array que contiene 
+      // objetos que representan un track
+      // representa los tracks obtenidos
+      // luego de la búsqueda
+      [
+        // 1er track obtenido luego de la búsqueda
+        {
+          name: 'Odelay',
+          artist: 'Beck',
+          album: 'Odelay',
+          id: 1
+        },
+         // 2do track obtenido luego de la búsqueda
+        {
+          name: 'Old',
+          artist: 'Nick Cave',
+          album: 'Five leaves left',
+          id: 2
+        },
+
+        // 3er track obtenido luego de la búsqueda
+        {
+          name: 'Otra canción',
+          artist: 'Otra artista',
+          album: 'album desconocido',
+          id: 3
+        }
+      ],
       // the play list name
-      playlistName: 'Luko Playlist',
+      playlistName: 'My Playlist',
+
       // the play list tracks
       playlistTracks: 
       [
@@ -44,48 +76,26 @@ class App extends Component {
                           id: '3'
                         }
       ],
-      // the search results
-      searchResults: 
-      // un array que contiene 
-      // objetos que representan un track
-      // representa los tracks obtenidos
-      // luego de la búsqueda
-      [
-        // 1er track obtenido luego de la búsqueda
-        {
-          name: 'Odelay',
-          artist: 'Beck',
-          album: 'Odelay',
-          id: '1234'
-        },
-         // 2do track obtenido luego de la búsqueda
-        {
-          name: 'Old',
-          artist: 'Nick Cave',
-          album: 'Five leaves left',
-          id: '3456'
-        },
 
-        // 3er track obtenido luego de la búsqueda
-        {
-          name: 'Otra canción',
-          artist: 'Otra artista',
-          album: 'album desconocido',
-          id: '3446'
-        }
-      ]
-   }
-  this.addTrack = this.addTrack.bind(this);
+   };
+      this.addTrack = this.addTrack.bind(this);
   }
 
   // Add track from de search result track list to
   // the user custom play list
   addTrack(track) {
 
-    // evaluate if the track already exists in the user custom play list
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    let tracks = this.state.playlistTracks;
+
+    // ref: tracks = [{album, artist, id, name}, {album, artist, id, name}, {album, artist, id, name}]
+    // el id del track que estoy agregando, ya estaba guardado en 'playlistTracks'??
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     }
+    // si el track no fue guardado anteriormente
+    // agregarlo al array 'tracks' (o sea, actualizar el 'playlistTracks')
+    tracks.push(track);
+    this.setState({playlistTracks: tracks});
   }
 
   render() {
@@ -93,14 +103,20 @@ class App extends Component {
         <div>
           <h1>Spotify Searcher</h1>
           <div className="App">
+          
+            {/* Search Bar Component */}
+            <SearchBar/>
+
             <div className="App-playlist">
-              {/* <SearchBar/> */}
-              {/* Pass the 'addTrack' method to the SearchResults props */}
+
+               {/* Search Results Component */}
               <SearchResults
                   searchResults={this.state.searchResults}
                   onAdd={this.addTrack}
                   isRemoval={false}
               />
+
+               {/* Playlist Component */}
               <Playlist 
                   playlistName={this.state.playlistName}
                   playlistTracks={this.state.playlistTracks} 

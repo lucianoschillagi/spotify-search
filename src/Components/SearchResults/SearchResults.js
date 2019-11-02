@@ -7,6 +7,8 @@ import TrackList from '../TrackList/TrackList';
 // la lista de canciones obtenidas
 // después de realizar una búsqueda específica
 class SearchResults extends Component {
+
+  // this.props.onAdd
   
   render() {
   { /* 👏 Pass the searchResult state of the App component 
@@ -18,7 +20,7 @@ class SearchResults extends Component {
         <TrackList 
               tracks={this.props.searchResults}
               onAdd={this.props.onAdd}
-              isRemoval={this.props.isRemoval}
+              isRemoval={false}
          />
       </div>
     );

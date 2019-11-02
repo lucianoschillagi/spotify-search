@@ -9,7 +9,7 @@ import Track from '../Track/Track';
 // Abstract:
 // una lista de canciones (vale tanto para
 // ´search results´ como para ´playlist´)
-class TrackList extends Component { // an stateLESS class component
+class TrackList extends Component { 
 
     trackOne = {
                 name: 'tema 1',
@@ -38,7 +38,10 @@ class TrackList extends Component { // an stateLESS class component
       <div className="TrackList">
         {
           this.props.tracks.map(track => {
-          return <Track track={track} key={track.id} />;
+            return <Track 
+                      track={track} 
+                      key={track.id}
+                      onAdd={this.props.onAdd}/>;
           })
         }
       </div>
@@ -48,23 +51,3 @@ class TrackList extends Component { // an stateLESS class component
 }
 
 export default TrackList;
-
-
-          {/* Hard coded 3 tracks, later replace */}
-          {/* <Track 
-              name={this.trackOne.name}
-              artist={this.trackOne.artist}
-              album={this.trackOne.album}
-          />
-
-          <Track 
-              name={this.trackTwo.name}
-              artist={this.trackTwo.artist}
-              album={this.trackTwo.album}
-          />
-
-          <Track 
-              name={this.trackThree.name}
-              artist={this.trackThree.artist}
-              album={this.trackThree.album}
-          /> */}

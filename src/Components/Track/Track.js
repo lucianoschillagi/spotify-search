@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 import './Track.css'
 
-// Contains the info about the song's track
-class Track extends Component { // an stateLESS class component
+// Abstract: Contains the info about the song's track
+class Track extends Component { 
 
  constructor(props) {
    super(props);
    this.addTrack = this.addTrack.bind(this);
+   this.renderAction = this.renderAction.bind(this);
  }
 
   // Add track to the playlist
   addTrack() {
-     this.props.onAdd(this.props.track)
+     this.props.onAdd(this.props.track);
   }
 
-  // create a method
+  // Renderiza un botón para agregar o para eliminar
+  // un track dependiendo...(ACLARAR)
   renderAction() {
-    return (
-      <div className='Track-action'>
-        if (isRemoval) {
-          <button> - </button>
-        } else { 
-          <button onClick={this.addTrack}> +  </button>
+        if (this.props.isRemoval) {
+         return  <button className="Track-action"> - </button>
+          } else { 
+         return <button className="Track-action" onClick={this.addTrack}> + </button>
         }
-      </div>
-    );
   }
 
   render() {
@@ -34,26 +32,16 @@ class Track extends Component { // an stateLESS class component
         {/* 1-The track info */}
         <div className="Track-information">
 
-          {/* 1a-The track name */}
-          <h3>{this.props.track.name}</h3>
+            {/* 1a-The track name */}
+            <h3>{this.props.track.name}</h3>
 
-          {/* 1b-The track artist and album */}
-          <p>
-            {this.props.track.artist}
-            | 
-             {this.props.track.album}
-            </p>
+            {/* 1b-The track artist and album */}
+            <p>{this.props.track.artist} | {this.props.track.album}</p>
 
-            {/* 🤓 experiment, later clear */} 
-            <p>
-              {this.props.track.id}
-            </p>
         </div>
 
         {/* 2-The add or remove track button */}
-        <button className="Track-action">
-          {/* + or - will go here */}
-        </button>
+        {this.renderAction()}
 
       </div>
     );
